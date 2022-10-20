@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+
+<a th:href="@{/create}" th:text="Create"></a>
+
+<table border="1">
+    <tr th:each="c : ${customers}" th:object="${c}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{email}"></td>
+        <td th:text="*{address}"></td>
+        <td><a th:href="@{/detail/{id}(id=*{id})}">Detail</a></td>
+        <td><a th:href="@{/edit/{id}(id=*{id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=*{id})}">Delete</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
